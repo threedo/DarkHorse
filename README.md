@@ -1,77 +1,105 @@
-# DarkHorse
-Scripts to retrieve your comics that you downloaded from the DarkHorse reader app and turn those files into PDFs and CBZ files.
+DarkHorse Comic Organizer
+A Python script to retrieve your downloaded Dark Horse digital comics and convert them into PDF and CBZ files for easy reading.
 
+What This Script Does:
+	•	Scans and processes all comic folders inside the Books directory.
+	•	Adds missing .jpg file extensions to all comic pages.
+	•	Reads the manifest.json file in each comic folder to determine the correct page order.
+	•	Renames image files numerically based on page order.
+	•	Converts images into a PDF and a CBZ file.
+	•	Generates a UUID mapping CSV file to help rename comics manually.
 
-DarkHorse Comic Organizer: A Python script to organize and convert Dark Horse digital comics into PDF and CBZ formats.
+Why I Made This:
+Dark Horse announced that their app would soon shut down, and all purchased digital comics would be unavailable. Their FAQ even claimed that users couldn’t access their comics because they were “protected.” However, if you’ve downloaded your comics using their app, they are already on your computer.
 
-What does this script do? 
+This script:
+	•	Finds your downloaded comics
+	•	Sorts the files
+	•	Outputs organized PDF and CBZ files
 
--Scans and processes all comic folders inside the Books directory. 
+The process was tricky because the comics are hidden in folders with random UUIDs instead of actual names. But don’t worry—this script helps get them organized.
 
--Adds a jpg file extension to all the comic pages within each book directory Reads the manifest.json file in each comic folder to determine the correct page order. 
+How to Use This Script
 
--Renames image files based on their page order. 
+Step 1: Install Python 3
+Make sure Python 3 is installed on your computer.
+Check by opening Terminal and typing:
 
--Converts images into a PDF and a CBZ file for easy reading. 
+python3 –version
 
--Generates a UUID mapping CSV file to help rename comics manually.
+If it’s not installed, download it from python.org.
 
+Step 2: Install Required Dependencies
+Run the following command in Terminal to install the necessary Python modules:
 
-Author's comments: 
+pip install pillow img2pdf
 
-Dark Horse told me (in an email) that soon their app would shut down and all the books I've acquired over the years would be gone (thanks). Their FAQ even goes as far as saying that you can't have them because they are protected. But here's the thing... technically, you already have them and they are sitting on your computer somewhere. This script will grab them, sort them and output them into a PDF and CBZ file.
+If you get an error, try:
 
-This process was rather complicated because of how the files are stored, so bare with me as I explain each step, but I promise the end result is a nice organized PDF or CBZ of the comics you collected in your bookshelf (and yes... without any DRM).
+python3 -m pip install pillow img2pdf
 
-The first thing you want to do is download their app (which btw won't be available for much longer. Once downloaded, log in to your account and go to "bookshelf"... which displays all your comics. You will need to click on each one in order to download them to your computer.
+Step 3: Locate Your Comics Folder
+On Mac, Dark Horse saves downloaded comics here:
 
-On Mac, they are downloaded to the Libray/Containers/Dark Horse/Bookshelf/Books folder and each one uses a UUID as its name. (UUID meaning a bunch of letters and numbers that mean diddly shit to you). Unfortunately, I don't believe there is an app on PC for this. The app only exists for Apple and Android (and who knows how much longer they will keep them live).
+~/Library/Containers/Dark Horse/Data/Documents/Bookshelf/Books/
 
-READ THIS---------------> Once you found the "Dark Horse" folder... Make a new folder called "DarkHorse" (notice there is no space) and copy the Data/Documents/Bookshelf/Books folder to it.
+Each comic is stored in a folder with a UUID name (a long string of letters and numbers).
 
-In each UUID is a bunch of files with no file extensions and two files with JSON extensions. These JSON files are the manifest files. THey contain the order that these files go in. My script will add a jpg file extension to each of these files, then parse the manifest file to put them in the correct order. It will also rename the files with a number so you can easily see the order. Unfortunately, there was no reference to the book name in either manifest so the folders will remain as a UUID name. But don't worry, I added a line in the script to output a CSV file in the Output folder with all the UUID's so you can use a second script Ill write to rename them properly.
+Important: The original folder name “Dark Horse” has a space in it, which may cause issues when running the script.
 
-The last thing my script will do is output each of these comics (now in order) as a single PDF per folder, and CBZ file for your comic reader program.
-Feel free to branch my script and make it better.
+Step 4: Copy Comics to a New Folder
+To avoid script errors, create a new folder called DarkHorse (without a space).
+Then copy your comics from the original folder into this new location.
 
-Cheers!
+Folder structure before:
+~/Library/Containers/Dark Horse/Data/Documents/Bookshelf/Books/
 
--Threedo
+Folder structure after copying:
+~/Library/Containers/DarkHorse/Data/Documents/Bookshelf/Books/
 
--------------------------------------------
+Now your comics are in a space-free directory.
 
-Instructions
+Step 5: Run the Script
+	1.	Download the script from GitHub and save it to a folder you can access easily.
+	2.	Open Terminal and navigate to where the script is saved.
+Example: If saved in Downloads, type:
+cd ~/Downloads
+	3.	Run the script:
+python3 DarkHorse_Comic_Organizer.py
+	4.	If you want debug mode (more detailed logs), run:
+python3 DarkHorse_Comic_Organizer.py –debug
 
-DarkHorse Comic Organizer – Step-by-Step Guide
+Step 6: Check Your Output
+Once the script runs, check the Output folder:
 
-*these instructions are specific to Mac because the Dark Horse Digital app is only available in the Apple and Android store.
+~/Library/Containers/DarkHorse/Data/Documents/Bookshelf/Books/Output/
 
-1. Install Python 3
-Before you begin, make sure you have Python 3 installed on your computer. Python 3 is usually pre-installed on Mac, but you can check by typing “python3 –version” in Terminal. If it’s not installed, download and install it from python.org. 
+Inside this folder, you’ll find:
+	•	PDF versions of your comics
+	•	CBZ files for comic readers
+	•	A uuid_mapping.csv file – this helps manually rename comics later.
 
-2. Install Required Python Modules
-Once Python 3 is installed, you need to install the required dependencies. Open a terminal or command prompt and type “pip install pillow img2pdf”. If “pip” isn’t working, try “python3 -m pip install pillow img2pdf”. This installs the necessary tools to process images and create PDFs.
+Step 7: Troubleshooting
+If nothing happens after running the script:
+	•	Make sure you copied your comics to DarkHorse (no space).
+	•	Ensure Python 3 and dependencies are installed.
+	•	Try running the script with –debug for more details.
 
-3. Locate Your Comics Folder
-You need to find where Dark Horse saves your downloaded comics. On Mac, comics are stored in “Library/Containers/Dark Horse/Data/Documents/Bookshelf/Books/”. Each comic is inside a folder with a UUID as the name. 
+Step 8: Rename Comics (Optional)
+Since UUID folder names are random, the script generates a UUID mapping CSV file (uuid_mapping.csv). You can:
+	1.	Manually update this file with real comic names.
+	2.	Use a separate script (coming soon) to rename the folders automatically.
 
-4. Prepare Your Comics for the Script
-Because the original “Dark Horse” folder has a space in its name, I had issues running the script. To avoid this problem, create a new folder in the same location as your Books folder and name it “DarkHorse” (without the space). Then, make a folder in that called "Data" and one in that called "Documents" and one in that called "Bookshelf" and one in that called "Books". Then copy the folders in the Books folder over to it. The end result should be a folder called DarkHorse with the same folder structure as the one with a space. Below is a diagram. Hope this helps and is clear.
+Want to Contribute?
+Feel free to fork the GitHub repository and improve the script.
+	•	Fix bugs
+	•	Add Windows support
+	•	Make it even better
 
-Library/Containers/Dark Horse (this is the original Dark Horse folder the app creates. Notice it has a space in the name)/Data/Documents/Bookshelf/Books/(Copy these folders)
-    
-Now go to Library/Containers and make this path: DarkHorse (this is the folder you create. Notice there is NO space)/Data/Documents/Bookshelf/Books/(Paste those folders)
+If you manage to remove the space issue with “Dark Horse,” let me know—you’re a wizard.
 
-5. Download and Run the Script
-In this step, you need to run my script. So either paste it to a text file, download it from Github, clone the repo, etc... whatever you need to do to get that script on your machine and in a place you can run it. I saved mine in my downloads folder, opened terminal, navigated to the downloads folder and typed: “python3 DarkHorse_Comic_Organizer.py”. If you want to enable debug mode, which provides more details, run “python3 DarkHorse_Comic_Organizer.py –debug”.
+Final Thoughts
+Dark Horse wanted to lock away your comics forever—but this script lets you keep what you paid for. Now you can read them anytime, DRM-free.
 
-6. Check Your Output
-Once the script runs successfully, it will generate a folder called “Output” in the Containers/DarkHorse/.../.../.../Books folder (the one you created) in step 4. Inside this folder, you’ll find both PDF and CBZ versions of your comics. The script also creates a “uuid_mapping.csv” file, which contains all the UUIDs found in the processed folders. You can manually edit this file to add the correct comic names, and later use a separate script (which I will add) to rename the folders properly.
-
-7. Troubleshooting
-If nothing happens after running the script, ensure that you copied the "Data/Documents/Bookshelf/Books" folder structure inside “DarkHorse”. 
-
-8. Want to Improve the Script?
-If you’re comfortable with coding, feel free to fork the GitHub repository and make improvements. If you fix the space issue with “Dark Horse,” congratulations, you’re ahead of where I started! If you make useful changes, consider submitting a pull request so others can benefit as well.
-
-Now go read your comics!
+Enjoy!
+— Threedo
