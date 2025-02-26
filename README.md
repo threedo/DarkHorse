@@ -4,7 +4,12 @@ Scripts to retrieve your comics that you downloaded from the DarkHorse reader ap
 
 DarkHorse Comic Organizer: A Python script to organize and convert Dark Horse digital comics into PDF and CBZ formats.
 
-What does this script do? Scans and processes all comic folders inside the Books directory. Adds a jpg file extension to all the comic pages within each book directory Reads the manifest.json file in each comic folder to determine the correct page order. Renames image files based on their page order. Converts images into a PDF and a CBZ file for easy reading. Generates a UUID mapping CSV file to help rename comics manually.
+What does this script do? 
+-Scans and processes all comic folders inside the Books directory. 
+-Adds a jpg file extension to all the comic pages within each book directory Reads the manifest.json file in each comic folder to determine the correct page order. 
+-Renames image files based on their page order. 
+-Converts images into a PDF and a CBZ file for easy reading. 
+-Generates a UUID mapping CSV file to help rename comics manually.
 
 Author's comments: 
 
