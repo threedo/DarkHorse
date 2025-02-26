@@ -3,23 +3,36 @@ Scripts to retrieve your comics that you downloaded from the DarkHorse reader ap
 
 
 DarkHorse Comic Organizer: A Python script to organize and convert Dark Horse digital comics into PDF and CBZ formats.
+
 What does this script do? Scans and processes all comic folders inside the Books directory. Adds a jpg file extension to all the comic pages within each book directory Reads the manifest.json file in each comic folder to determine the correct page order. Renames image files based on their page order. Converts images into a PDF and a CBZ file for easy reading. Generates a UUID mapping CSV file to help rename comics manually.
-Author's comments: Dark Horse told me (in an email) that soon their app would shut down and all the books I've acquired over the years would be gone (thanks). Their FAQ even goes as far as saying that you can't have them because they are protected. But here's the thing... technically, you already have them and they are sitting on your computer somewhere. This script will grab them, sort them and output them into a PDF and CBZ file.
+
+Author's comments: 
+
+Dark Horse told me (in an email) that soon their app would shut down and all the books I've acquired over the years would be gone (thanks). Their FAQ even goes as far as saying that you can't have them because they are protected. But here's the thing... technically, you already have them and they are sitting on your computer somewhere. This script will grab them, sort them and output them into a PDF and CBZ file.
+
 This process was rather complicated because of how the files are stored, so bare with me as I explain each step, but I promise the end result is a nice organized PDF or CBZ of the comics you collected in your bookshelf (and yes... without any DRM).
+
 The first thing you want to do is download their app (which btw won't be available for much longer. Once downloaded, log in to your account and go to "bookshelf"... which displays all your comics. You will need to click on each one in order to download them to your computer.
+
 On Mac, they are downloaded to the Libray/Containers/Dark Horse/Bookshelf/Books folder and each one uses a UUID as its name. (UUID meaning a bunch of letters and numbers that mean diddly shit to you). Unfortunately, I don't believe there is an app on PC for this. The app only exists for Apple and Android (and who knows how much longer they will keep them live).
 
 READ THIS---------------> Once you found the "Dark Horse" folder... Make a new folder called "DarkHorse" (notice there is no space) and copy the Data/Documents/Bookshelf/Books folder to it.
 
 In each UUID is a bunch of files with no file extensions and two files with JSON extensions. These JSON files are the manifest files. THey contain the order that these files go in. My script will add a jpg file extension to each of these files, then parse the manifest file to put them in the correct order. It will also rename the files with a number so you can easily see the order. Unfortunately, there was no reference to the book name in either manifest so the folders will remain as a UUID name. But don't worry, I added a line in the script to output a CSV file in the Output folder with all the UUID's so you can use a second script Ill write to rename them properly.
+
 The last thing my script will do is output each of these comics (now in order) as a single PDF per folder, and CBZ file for your comic reader program.
 Feel free to branch my script and make it better.
+
 Cheers!
+
 -Threedo
 
+-------------------------------------------
 
 Instructions
+
 DarkHorse Comic Organizer – Step-by-Step Guide
+
 *these instructions are specific to Mac because the Dark Horse Digital app is only available in the Apple and Android store.
 
 1. Install Python 3
