@@ -34,20 +34,9 @@ You need to find where Dark Horse saves your downloaded comics. On Mac, comics a
 4. Prepare Your Comics for the Script
 Because the original “Dark Horse” folder has a space in its name, I had issues running the script. To avoid this problem, create a new folder in the same location as your Books folder and name it “DarkHorse” (without the space). Then, make a folder in that called "Data" and one in that called "Documents" and one in that called "Bookshelf" and one in that called "Books". Then copy the folders in the Books folder over to it. The end result should be a folder called DarkHorse with the same folder structure as the one with a space. Below is a diagram. Hope this helps and is clear.
 
-Library
-  Containers
-    Dark Horse (this is the original Dark Horse folder the app creates. Notice it has a space in the name)
-        Data
-          Documents
-            Bookshelf
-              Books
-                (Copy these folders)
-    DarkHorse (this is the folder you create. Notice there is NO space)
-        Data
-          Documents
-            Bookshelf
-              Books
-                (Paste those folders)
+Library/Containers/Dark Horse (this is the original Dark Horse folder the app creates. Notice it has a space in the name)/Data/Documents/Bookshelf/Books/(Copy these folders)
+    
+Now go to Library/Containers and make this path: DarkHorse (this is the folder you create. Notice there is NO space)/Data/Documents/Bookshelf/Books/(Paste those folders)
 
 5. Download and Run the Script
 In this step, you need to run my script. So either paste it to a text file, download it from Github, clone the repo, etc... whatever you need to do to get that script on your machine and in a place you can run it. I saved mine in my downloads folder, opened terminal, navigated to the downloads folder and typed: “python3 DarkHorse_Comic_Organizer.py”. If you want to enable debug mode, which provides more details, run “python3 DarkHorse_Comic_Organizer.py –debug”.
