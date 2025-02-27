@@ -13,8 +13,6 @@ Once the script has sorted and renamed the files, it exports a copy of your comi
 
 Currently, your comics will still be identified by their UUIDs, as I have not found a reliable way to get the actual titles. However, I’ve included a CSV file in the Output folder with the list of UUIDs. You can manually add the comic names to this CSV and use a file renamer or another script (which I’ll hopefully release soon) to update the files. While it’s not fully automated yet, this will at least allow you to regain your digital collection.
 
-I apologize for the situation we’re in, and I hope this script helps you recover the content you’ve purchased. My only request is that you remain honest and respectful with your comics—please don’t upload them to Pastebin or similar services. Doing so only strengthens the argument of companies like Dark Horse for withholding content.
-
 Cheers,
-Enjoy!
+
 — Threedo
