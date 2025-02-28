@@ -1,0 +1,29 @@
+#Once you have your comics in the "output" folder, go to digital.darkhorse.com and login. Go to your bookshelf. Click F12 to open the developer tools. Click on the console.
+
+#Type this in and press enter...
+
+var titles = "";
+
+$(".bookshelf-item").each(function() { 
+  var uuid=$(this).attr("id");
+  var title=$("p.bookshelf-item-title", $(this)).html();
+  var pair = uuid + "," + title + "\r";
+  titles += pair;
+});
+
+#console.log(titles);
+
+#It will return the UUID names of all your comics. 
+#Copy the data and save it in a txt editor, google sheet, microsoft excel... etc..
+
+#Repeat for every page in your bookshelf, until you have a master list of all the comic UUID's and their titles.
+
+#Now add a column header in your spreadsheet called uuid and one next to it called title
+
+#use the text to split columns feature so one column is the UUID and the other is the comic name.
+
+#Now save that file to your downloads folder and name it uuid_mapping.csv (It must be named that exactly for the script to work).
+
+#Now run my script titled rename_cbz.py and it will rename all your books!
+
+#-Threedo
