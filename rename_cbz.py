@@ -12,19 +12,30 @@ with open(MAPPING_FILE, "r", encoding="utf-8") as f:
     next(reader)  # Skip header
     for row in reader:
         if len(row) == 2:
-            uuid_to_title[row[0]] = row[1]
+            uuid_to_title[row[0].strip()] = row[1].strip()  # Strip spaces
 
-# Rename CBZ files
+# Rename CBZ and PDF files
 for filename in os.listdir(OUTPUT_DIR):
-    if filename.endswith(".cbz"):
-        uuid = filename.replace(".cbz", "")  # Get UUID from filename
+    file_path = os.path.join(OUTPUT_DIR, filename)
+
+    # Skip directories
+    if not os.path.isfile(file_path):
+        continue
+
+    # Check if it's a CBZ or PDF file
+    if filename.endswith(".cbz") or filename.endswith(".pdf"):
+        uuid = filename.replace(".cbz", "").replace(".pdf", "").strip()  # Extract UUID
+
         if uuid in uuid_to_title:
-            new_filename = f"{uuid_to_title[uuid]}.cbz"
-            old_path = os.path.join(OUTPUT_DIR, filename)
+            # Create new filename
+            new_filename = f"{uuid_to_title[uuid]}{os.path.splitext(filename)[1]}"  # Keep original extension
             new_path = os.path.join(OUTPUT_DIR, new_filename)
 
             # Rename file
-            os.rename(old_path, new_path)
-            print(f"✅ Renamed {filename} → {new_filename}")
+            try:
+                os.rename(file_path, new_path)
+                print(f"✅ Renamed {filename} → {new_filename}")
+            except Exception as e:
+                print(f"❌ Error renaming {filename}: {e}")
 
-print("✅ All CBZ files renamed successfully!")
+print("\n🎉 ✅ All CBZ and PDF files renamed successfully!")
