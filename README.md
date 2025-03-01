@@ -11,7 +11,7 @@ Once the script has sorted and renamed the files, it exports a copy of your comi
 
 	Note: A Reddit user (codeface) requested an option to choose between PDF or CBZ formats, but I haven’t implemented that yet.
 
-Currently, your comics will still be identified by their UUIDs, as I have not found a reliable way to get the actual titles. However, I’ve included a CSV file in the Output folder with the list of UUIDs. You can manually add the comic names to this CSV and use a file renamer or another script (which I’ll hopefully release soon) to update the files. While it’s not fully automated yet, this will at least allow you to regain your digital collection.
+Currently, your comics will still be identified by their UUIDs in the Output folder. Follow my instructions for gathering the comic book names from the Dark Horse website (basically you go to your bookshelf on their website, and run a command in the browser's developer console, and it outputs the names of all your books) and run my rename_cbz script and you should be good to go!
 
 Cheers,
 
