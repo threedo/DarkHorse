@@ -1,6 +1,6 @@
 #Once you have your comics in the "output" folder, go to digital.darkhorse.com and login. Go to your bookshelf. Click F12 to open the developer tools. Click on the console.
 
-#Type this in and press enter... compliments of (jbaker) 
+#Type this in and press enter... compliments of (jblaker) 
 
 var titles = "";
 
