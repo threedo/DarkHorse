@@ -9,8 +9,6 @@ The script identifies your unique Dark Horse folder using the UUID. It then navi
 
 Once the script has sorted and renamed the files, it exports a copy of your comics as PDFs and CBZ files, saved to a folder called Output on your desktop.
 
-	Note: A Reddit user (codeface) requested an option to choose between PDF or CBZ formats, but I haven’t implemented that yet.
-
 Currently, your comics will still be identified by their UUIDs in the Output folder. Follow my instructions for gathering the comic book names from the Dark Horse website (basically you go to your bookshelf on their website, and run a command in the browser's developer console, and it outputs the names of all your books) and run my rename_cbz script and you should be good to go!
 
 Cheers,
