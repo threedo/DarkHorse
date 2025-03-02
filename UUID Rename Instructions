@@ -11,7 +11,7 @@ $(".bookshelf-item").each(function() {
   titles += pair;
 });
 
-#console.log(titles);
+console.log(titles);
 
 #It will return the UUID names of all your comics. 
 #Copy the data and save it in a txt editor, google sheet, microsoft excel... etc..
