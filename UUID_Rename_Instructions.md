@@ -10,7 +10,7 @@ Now make sure to select the "Console" tab in the developer tools so you can run 
 
 This code below is JQuery, compliments of jblaker. Copy it and paste it into the console and press enter:
 
-`
+```
 var titles = "";
 
 $(".bookshelf-item").each(function() { 
@@ -21,8 +21,8 @@ $(".bookshelf-item").each(function() {
 });
 
 console.log(titles);
-`
 
+```
 
 It will return the UUIDs and titles of all the comics on the bookshelf page you are on. 
 
