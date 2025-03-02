@@ -3,15 +3,15 @@ Here are the instructions for getting those ugly UUID comic book names renamed t
 <ul>
   <li><span style="color: blue; font-weight: bold;">Step 1: Open a Browser and go to your Bookshelf</span>
     <ul>
-      <li>Open a browser and go to <a href="https://digital.darkhorse.com" target="_blank">digital.darkhorse.com</a> and login. I used Google Chrome. At the time of this post, the version is 133.0.6943.142</li>
-      <li>Navigate to your bookshelf</li>
-      <li>On the bookshelf page there is a checkbox called "list comics by series".. make sure this is not checked as we want to see each comic individually. I believe the page can only show up to 25 comics per page, so if you have hundreds of books, there will be many pages</li>
+      <li>Open a browser and go to <a href="https://digital.darkhorse.com" target="_blank">digital.darkhorse.com</a> and login. I used Google Chrome. At the time of this post, the version is 133.0.6943.142.</li>
+      <li>Navigate to your bookshelf.</li>
+      <li>On the bookshelf page there is a checkbox called "list comics by series." Make sure this is not checked as we want to see each comic individually. I believe the page can only show up to 25 comics per page, so if you have hundreds of books, there will be many pages.</li>
     </ul>
   </li>
   
   <li><span style="color: blue; font-weight: bold;">Step 2: Using the Browser's Developer Tools</span>
     <ul>
-      <li>Open the Developer tools (I believe you can do this by pressing F12, or by opening the "view" menu and selecting Developer/Developer tools.</li>
+      <li>Open the Developer tools (I believe you can do this by pressing F12, or by opening the "view" menu and selecting Developer/Developer tools).</li>
       <li>Make sure to select the "Console" tab in the developer tools so you can run the code below.</li>
     </ul>
   </li>
@@ -19,6 +19,7 @@ Here are the instructions for getting those ugly UUID comic book names renamed t
   <li><span style="color: blue; font-weight: bold;">Step 3: Run the JQuery in your Console</span>
     <ul>
       <li>Run the code below by copying it here, and pasting it in the console and pressing enter.</li>
+      <li>This code below is JQuery, compliments of jblaker. Copy it and paste it into the console and press enter:</li>
     </ul>
   </li>
 
