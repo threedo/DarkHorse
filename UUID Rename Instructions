@@ -1,6 +1,14 @@
-#Once you have your comics in the "output" folder, go to digital.darkhorse.com and login. Go to your bookshelf. Click F12 to open the developer tools. Click on the console.
+#Once you have your comics in the "output" folder, go to digital.darkhorse.com and login. Go to your bookshelf. 
 
-#Type this in and press enter... compliments of (jblaker) 
+#On the bookshelf page there is a checkbox called "list comics by series".. make sure this is not checked as we want to see each comic individually. I believe the page can only show up to 25 comics per page, so if you have hundreds of books, there will be many pages.
+
+#Now open the browser's developer tools. I used the latest version of the Google Chrome browser for reference. At the time of this post, the version is 133.0.6943.142.
+
+#Now open the Developer tools (I believe you can do this by pressing F12, or by openeing the "view" menu and selecting Developer/Developer tools. 
+
+#Now make sure to select the "Console" tab in the developer tools so you can run the code below. 
+
+#This code below is JQuery, compliments of jblaker. Copy it and paste it into the console and press enter:
 
 var titles = "";
 
@@ -13,17 +21,19 @@ $(".bookshelf-item").each(function() {
 
 console.log(titles);
 
-#It will return the UUID names of all your comics. 
-#Copy the data and save it in a txt editor, google sheet, microsoft excel... etc..
+#It will return the UUIDs and titles of all the comics on the bookshelf page you are on. 
 
-#Repeat for every page in your bookshelf, until you have a master list of all the comic UUID's and their titles.
+#You will need to copy this and paste it elsewhere as we will need it later. I copied and pasted it into a blank Google Sheet.
 
-#Now add a column header in your spreadsheet called uuid and one next to it called title
+Once you got it pasted somewhere, go back to the browser and with the developer tools still open, go to the next page in your bookshelf. 
 
-#use the text to split columns feature so one column is the UUID and the other is the comic name.
+#Then run the query again and copy and paste the results again. Keep doing this until you have done it for all the pages you have of comics. You should now have a very large list of your comic book titles and their assocated UUIDs
 
-#Now save that file to your downloads folder and name it uuid_mapping.csv (It must be named that exactly for the script to work).
+#Now go to the list you made, and make sure one column is called "uuid" (with no quotes), and the other is called "title" (with no quotes). Make sure all the UUIDs are in the UUID column and the comic book titles are in the column called title.
+#Noteworthy- you can use the Split Text to Columns feature if you need to separate the UUIDs from the Titles.
 
-#Now run my script titled rename_cbz.py and it will rename all your books!
+#Now save the file as a CSV file to your downloads folder and make sure it is called uuid_mapping.csv (it must be named that for the script to work).
+
+#Now run the script titled rename_cbz.py and it will rename all your books that are sitting in the Output folder with a UUID as its title.
 
 #-Threedo
